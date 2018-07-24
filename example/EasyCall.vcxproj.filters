@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\EasyCall\EasyCall.cpp">
+      <Filter>EasyCall</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\EasyCall\EasyCall.h">
+      <Filter>EasyCall</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="EasyCall">
+      <UniqueIdentifier>{c557fe02-7a87-4abb-8e62-e22628cfe7be}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
