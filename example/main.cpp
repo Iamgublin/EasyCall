@@ -8,14 +8,14 @@ class A :public IEasyCall
 {
 public:
     A() { RegisterCallName(L"class A"); }
-    ~A() = default;
+    ~A() { UnRegisterCallName(); }
 };
 
 class B :public IEasyCall
 {
 public:
     B() { RegisterCallName(L"class B"); }
-    ~B() = default;
+    ~B() { UnRegisterCallName(); }
 
     virtual BOOL OnCall(int iCallType, PVOID pParam);
 private:
@@ -27,6 +27,7 @@ int main()
     A a;
     B b;
     a.EasyCall(L"class B", 1, NULL);             //A类调用B类的DoSomething方法
+    b.EasyCall(L"class A", 1, NULL);
     return 0;
 }
 

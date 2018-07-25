@@ -10,11 +10,14 @@ public:
     ~IEasyCall();
 
     BOOL RegisterCallName(std::wstring strCallName);
+    BOOL UnRegisterCallName();
+
     BOOL EasyCall(std::wstring strCallName, int CallType, PVOID pParam);
 
 protected:
     virtual BOOL OnCall(int iCallType, PVOID pParam) { return FALSE; }
 
 private:
+    std::wstring m_strCallName;
     static std::map<std::wstring, IEasyCall*> m_mpAllCall;
 };
