@@ -13,7 +13,7 @@ public:
     BOOL EasyCall(std::wstring strCallName, int CallType, PVOID pParam);
 
 protected:
-    virtual BOOL OnCall(int iCallType, PVOID pParam) = 0;
+    virtual BOOL OnCall(int iCallType, PVOID pParam) { return FALSE; }
 
 private:
     static std::map<std::wstring, IEasyCall*> m_mpAllCall;

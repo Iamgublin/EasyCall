@@ -9,8 +9,6 @@ class A :public IEasyCall
 public:
     A() { RegisterCallName(L"class A"); }
     ~A() = default;
-
-    virtual BOOL OnCall(int iCallType, PVOID pParam);
 };
 
 class B :public IEasyCall
@@ -29,11 +27,6 @@ int main()
     A a;
     B b;
     a.EasyCall(L"class B", 1, NULL);             //A类调用B类的DoSomething方法
-    return 0;
-}
-
-BOOL A::OnCall(int iCallType, PVOID pParam)
-{
     return 0;
 }
 
