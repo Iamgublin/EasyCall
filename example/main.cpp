@@ -37,6 +37,8 @@ BOOL B::OnCall(int iCallType, PVOID pParam)
     {
         DoSomething();
         printf("OK\n");
+        return TRUE;
     }
-    return 0;
+
+    return FALSE;
 }
