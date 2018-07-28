@@ -12,8 +12,8 @@ public:
     BOOL RegisterCallName(std::wstring strCallName);
     BOOL UnRegisterCallName();
 
-    BOOL EasyCall(std::wstring strCallName, int CallType, PVOID pParam);
-    static BOOL EasyCallStatic(std::wstring strCallName, int CallType, PVOID pParam);
+    BOOL EasyCall(std::wstring strCallName, int CallType, PVOID pParam, BOOL bFastCall = FALSE);
+    static BOOL EasyCallStatic(std::wstring strCallName, int CallType, PVOID pParam, BOOL bFastCall = FALSE);
 
 protected:
     virtual BOOL OnCall(int iCallType, PVOID pParam) { return FALSE; }
