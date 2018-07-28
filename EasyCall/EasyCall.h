@@ -13,6 +13,7 @@ public:
     BOOL UnRegisterCallName();
 
     BOOL EasyCall(std::wstring strCallName, int CallType, PVOID pParam);
+    static BOOL EasyCallStatic(std::wstring strCallName, int CallType, PVOID pParam);
 
 protected:
     virtual BOOL OnCall(int iCallType, PVOID pParam) { return FALSE; }
