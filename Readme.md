@@ -11,3 +11,5 @@
 3.重载OnCall函数</br>
 4.调用EasyCall函数，使用方法和SendMessage类似，传入注册时指定的名字即可轻松完成对其他类的调用</br>
 5.在类析构时调用取消注册函数</br>
+
+2018/9/9:增加异步调用方式EasyCallAsync EasyCallStaticAsync

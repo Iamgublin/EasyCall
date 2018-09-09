@@ -2,6 +2,9 @@
 //
 
 #include "stdafx.h"
+#include <Windows.h>
+#include <string>
+#include <map>
 #include "..\EasyCall\EasyCall.h"
 
 class A :public IEasyCall
@@ -26,8 +29,15 @@ int main()
 {
     A a;
     B b;
+    HANDLE hAsyncHandle = NULL;
     a.EasyCall(L"class B", 1, NULL);             //A类调用B类的DoSomething方法
     b.EasyCall(L"class A", 1, NULL);
+    if (a.EasyCallAsync(L"class B", 2, NULL, FALSE, &hAsyncHandle))   //A类异步调用B类的DoSomething方法
+    {
+        WaitForSingleObject(hAsyncHandle, INFINITE);
+        CloseHandle(hAsyncHandle);
+    }
+
     return 0;
 }
 
@@ -37,6 +47,12 @@ BOOL B::OnCall(int iCallType, PVOID pParam)
     {
         DoSomething();
         printf("OK\n");
+        return TRUE;
+    }
+    else if (iCallType == 2)
+    {
+        DoSomething();
+        printf("AsyncCall OK\n");
         return TRUE;
     }
 
