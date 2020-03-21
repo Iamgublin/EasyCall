@@ -38,6 +38,9 @@ int main()
         CloseHandle(hAsyncHandle);
     }
 
+    //也可以直接在类外调用指定类内方法(前提是B已经初始化了)
+    IEasyCall::EasyCallStatic(L"class B", 3, NULL);
+
     return 0;
 }
 
@@ -53,6 +56,12 @@ BOOL B::OnCall(int iCallType, PVOID pParam)
     {
         DoSomething();
         printf("AsyncCall OK\n");
+        return TRUE;
+    }
+    else if (iCallType == 3)
+    {
+        DoSomething();
+        printf("Static Call OK\n");
         return TRUE;
     }
 
