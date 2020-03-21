@@ -1,5 +1,12 @@
 #pragma once
 
+#include <map>
+#include <string>
+#include <mutex>
+#include <Windows.h>
+
+//#define USE_MUTEX_LOCK
+
 class IEasyCall
 {
 public:
@@ -21,6 +28,12 @@ private:
     static DWORD __stdcall _EasyCallAsyncProxy(LPVOID lpParam);
 
 private:
+
+#ifdef  USE_MUTEX_LOCK
+    std::mutex m_mtx;
+    static std::mutex m_stmtx;
+#endif //  USE_MUTEX_LOCK
+
     std::wstring m_strCallName;
     static std::map<std::wstring, IEasyCall*> m_mpAllCall;
 };
